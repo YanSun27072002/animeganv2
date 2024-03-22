@@ -55,9 +55,9 @@ def Convert(input_imgs_path, output_path, onnx ="model.onnx", img_size=[256,256]
         fake_img = session.run(None, {x : sample_image})
         save_images(fake_img[0], image_path, (shape[1], shape[0]))
 if __name__ == '__main__':
-    onnx_file = r"D:\webpage\Shinkai_53.onnx"
-    input_imgs_path = r'D:\webpage\input'
-    output_path = r'D:\webpage\output'
+    onnx_file = r"D:\AnimeGanV2\Shinkai_53.onnx"
+    input_imgs_path = r'D:\AnimeGanV2\input'
+    output_path = r'D:\AnimeGanV2\output'
      
     image_captured = st.camera_input("Capture", key="first_camera")
     if image_captured is not None:
@@ -66,9 +66,9 @@ if __name__ == '__main__':
         img = Image.open(image_captured)
         img_array = np.array(img)
         image = Image.fromarray(img_array)
-        image.save(r"D:\webpage\input\example.jpg")
+        image.save(r"D:\AnimeGanV2\input\example.jpg")
         Convert(input_imgs_path, output_path, onnx_file)
-        final_output = "D:\webpage\output\example.jpg"
+        final_output = "D:\AnimeGanV2\output\example.jpg"
         st.image(final_output, caption='Result', use_column_width=True)
 
 
